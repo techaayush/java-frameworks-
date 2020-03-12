@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- load properties file  -->
+	<context:property-placeholder location="classpath:properties/sport.properties"/>
+	<bean id="provider"
+		class="com.spring.learning.xmlbasedconfiguration.StandardOutMessageProvider"></bean>
+	<bean id="renderer"
+		class="com.spring.learning.xmlbasedconfiguration.StandardOutMessageRenderer">
+		
+		<!-- constructor dependency injection  -->
+		
+		<!-- <constructor-arg ref="provider"/> -->
+		
+		<!-- constructor literal injection  -->
+		
+		<constructor-arg value="${message}"/>
+		
+		<!--  setter dependency injection -->
+		
+		<!-- <property name="messageProvider" ref="provider"></property> -->
+	</bean>
+
+
+</beans>
